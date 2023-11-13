@@ -43,7 +43,3 @@ This builds the app in release mode similar to `cargo build --release`.
 You can also pass the `--release` flag to `trunk serve` if you need to get every last drop of performance.
 
 Unless overwritten, the output will be located in the `dist` directory.
-
-## Using this template
-
-There are a few things you have to adjust when adopting this template.
