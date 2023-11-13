@@ -38,6 +38,9 @@ jobs:
     - name: Run tests
       run: cargo test --verbose
       
+    - name: Change base-tag in index.html from / to chess-stats/
+      run: sed -i 's/<base href="\/" \/>/<base href="\/chess-stats\/" \/>/g' dist/index.html
+      
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
