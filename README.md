@@ -1,14 +1,10 @@
-# Yew Trunk Template
+# Chess Stats Lookup
 
-This is a fairly minimal template for a Yew app that's built with [Trunk].
-
-## Usage
-
-For a more thorough explanation of Trunk and its features, please head over to the [repository][trunk].
+Yew.rs app for looking up any user's statistics on https://chess.com/ or https://lichess.org/
 
 ### Installation
 
-If you don't already have it installed, it's time to install Rust: <https://www.rust-lang.org/tools/install>.
+If you don't already have it installed, install Rust: <https://www.rust-lang.org/tools/install>.
 The rest of this guide assumes a typical Rust installation which contains both `rustup` and Cargo.
 
 To compile Rust to WASM, we need to have the `wasm32-unknown-unknown` target installed.
@@ -18,14 +14,14 @@ If you don't already have it, install it with the following command:
 rustup target add wasm32-unknown-unknown
 ```
 
-Now that we have our basics covered, it's time to install the star of the show: [Trunk].
+Now that we have our basics covered, it's time to install [Trunk].
 Simply run the following command to install it:
 
 ```bash
 cargo install trunk wasm-bindgen-cli
 ```
 
-That's it, we're done!
+That is all you need to do.
 
 ### Running
 
@@ -63,12 +59,3 @@ Update the `name`, `version`, `description` and `repository` fields in the [Carg
 The [index.html](index.html) file also contains a `<title>` tag that needs updating.
 
 Finally, you should update this very `README` file to be about your app.
-
-### License
-
-The template ships with both the Apache and MIT license.
-If you don't want to have your app dual licensed, just remove one (or both) of the files and update the `license` field in `Cargo.toml`.
-
-There are two empty spaces in the MIT license you need to fill out: `` and `rylanlivingston <stormpower44@protonmail.com>`.
-
-[trunk]: https://github.com/thedodd/trunk
