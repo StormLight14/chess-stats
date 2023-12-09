@@ -1,7 +1,5 @@
-
-use yew::prelude::*;
-
 use crate::components::atoms::text_input::TextInput;
+use yew::prelude::*;
 
 #[derive(Properties, PartialEq)]
 pub struct Props {
@@ -12,7 +10,6 @@ pub struct Props {
 pub fn username_input(props: &Props) -> Html {
     let username_state = use_state(|| String::from(""));
     let username_setter = username_state.setter();
-
 
     let username_changed = Callback::from(move |username| {
         username_setter.set(username);
@@ -27,10 +24,10 @@ pub fn username_input(props: &Props) -> Html {
         form_onsubmit.emit(cloned_username_state.to_string());
     });
 
-   html! {
-    <form onsubmit={onsubmit}>
-        <TextInput name="username" placeholder="Stormlightnoway" handle_onchange={username_changed}/>
-        <p>{"Username: "}{&*username_state}</p>
-    </form>
-   } 
+    html! {
+     <form onsubmit={onsubmit}>
+         <TextInput name="username" placeholder="Stormlightnoway" handle_onchange={username_changed}/>
+     </form>
+    }
 }
+
