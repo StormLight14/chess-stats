@@ -3,6 +3,7 @@ use gloo::console::log;
 use reqwest::{Client, StatusCode};
 use serde::Deserialize;
 use std::fmt;
+use yew::platform::spawn_local;
 use yew::prelude::*;
 
 use wasm_bindgen_futures;
@@ -21,10 +22,10 @@ impl fmt::Display for TimeControlStats {
         write!(
             f,
             "
-            Games: {}\n
-            Rating: {}\n
-            RD: {}\n
-            Progression: {}\n",
+            Games: {},\n
+            Rating: {},\n
+            RD: {},\n
+            Progression: {},\n",
             self.games, self.rating, self.rd, self.prog
         )
     }
@@ -42,7 +43,11 @@ pub fn lichess() -> Html {
     let rapid_setter = rapid_state.setter();
 
     let username_input_submit = Callback::from(move |username| {
-        wasm_bindgen_futures::spawn_local(async move {
+        let bullet_setter = bullet_setter.clone();
+        let blitz_setter = blitz_setter.clone();
+        let rapid_setter = rapid_setter.clone();
+
+        spawn_local(async move {
             let client = Client::new();
 
             let username_response: serde_json::Value = client
@@ -89,6 +94,9 @@ pub fn lichess() -> Html {
         <main>
             <p>{ "Enter Lichess username: " }</p>
             <UsernameInput onsubmit={username_input_submit}/>
+            <p>{format!("{}", &*bullet_state)}</p>
+            <p>{format!("{}", &*blitz_state)}</p>
+            <p>{format!("{}", &*rapid_state)}</p>
         </main>
     }
 }
