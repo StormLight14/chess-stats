@@ -2,13 +2,19 @@ html,
 
 body {
   align-items: center;
-  background: linear-gradient(to bottom right, #444444, #009a5b) fixed;
+  background-color: #222222;
+  color: #FFFFFF;
   font-size: 1.3rem;
 }
 
 main {
-  color: #fff6d5;
+  color: #FFFFFF;
   font-family: sans-serif;
   text-align: center;
+}
+
+input {
+  padding: 5px;
+  border-radius: 5px;
 }
 

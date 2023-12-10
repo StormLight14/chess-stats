@@ -94,8 +94,11 @@ pub fn lichess() -> Html {
         <main>
             <p>{ "Enter Lichess username: " }</p>
             <UsernameInput onsubmit={username_input_submit}/>
+            <h2>{"Bullet"}</h2>
             <p>{format!("{}", &*bullet_state)}</p>
+            <h2>{"Blitz"}</h2>
             <p>{format!("{}", &*blitz_state)}</p>
+            <h2>{"Rapid"}</h2>
             <p>{format!("{}", &*rapid_state)}</p>
         </main>
     }
