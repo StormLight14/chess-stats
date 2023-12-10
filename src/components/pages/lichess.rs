@@ -7,12 +7,12 @@ use yew::prelude::*;
 
 use wasm_bindgen_futures;
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Default)]
 struct TimeControlStats {
-    games: u32,
-    rating: u32,
-    rd: u32,
-    prog: u32,
+    games: i32,
+    rating: i32,
+    rd: i32,
+    prog: i32,
     prov: bool,
 }
 
@@ -32,16 +32,16 @@ impl fmt::Display for TimeControlStats {
 
 #[function_component(Lichess)]
 pub fn lichess() -> Html {
-    let bullet_state = use_state(|| String::from(""));
+    let bullet_state = use_state(|| TimeControlStats::default());
     let bullet_setter = bullet_state.setter();
 
-    let blitz_state = use_state(|| String::from(""));
+    let blitz_state = use_state(|| TimeControlStats::default());
     let blitz_setter = blitz_state.setter();
 
-    let rapid_state = use_state(|| String::from(""));
+    let rapid_state = use_state(|| TimeControlStats::default());
     let rapid_setter = rapid_state.setter();
 
-    let username_input_submit = Callback::from(|username| {
+    let username_input_submit = Callback::from(move |username| {
         wasm_bindgen_futures::spawn_local(async move {
             let client = Client::new();
 
@@ -75,6 +75,10 @@ pub fn lichess() -> Html {
                     log!(format!("{}", bullet));
                     log!(format!("{}", blitz));
                     log!(format!("{}", rapid));
+
+                    bullet_setter.set(bullet);
+                    blitz_setter.set(blitz);
+                    rapid_setter.set(rapid);
                 }
             } else {
                 log!("User most likely does not exist.")
@@ -88,4 +92,3 @@ pub fn lichess() -> Html {
         </main>
     }
 }
-
