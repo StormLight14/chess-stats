@@ -6,8 +6,6 @@ use std::fmt;
 use yew::platform::spawn_local;
 use yew::prelude::*;
 
-use wasm_bindgen_futures;
-
 #[derive(Debug, Deserialize, Default)]
 struct TimeControlStats {
     games: i32,
