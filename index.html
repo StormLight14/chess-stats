@@ -1,9 +1,15 @@
 <!DOCTYPE html><html><head>
     <meta charset="utf-8">
     <title>Chess Stats Lookup</title>
-    <link rel="stylesheet" href="/index-68012d54d96d74f3.css">
+    <link rel="stylesheet" href="/index-68012d54d96d74f3.css" integrity="sha384-Q7iAm9WDwNgo7qMcl3Y9heU9o_CPvk2NYfqEjsBeg1zO2soEyy-SDMdL9LBbbc0F">
   
-<link rel="preload" href="/chess_stats-b9c4f0d1af573b92_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/chess_stats-b9c4f0d1af573b92.js"></head>
+<link rel="preload" href="/chess_stats-16f051f840cc1ac5_bg.wasm" as="fetch" type="application/wasm" crossorigin="anonymous" integrity="sha384-wZPGvFybwWGTr3sKx5ZEk8jy0VfZRf9A2-HNbwMrmUrYuAb1EHBgsX66ngUO69Xb">
+<link rel="modulepreload" href="/chess_stats-16f051f840cc1ac5.js" crossorigin="anonymous" integrity="sha384-y1mzNSna6fMuDSsfqr4wuXevxu-ZwKs2dAaPtGdmmhox4Mj9PsTs-kbAF1cgj3V5"></head>
 <body>
-<script type="module">import init from '/chess_stats-b9c4f0d1af573b92.js';init('/chess_stats-b9c4f0d1af573b92_bg.wasm');</script></body></html>
+
+<script type="module">
+import init, * as bindings from '/chess_stats-16f051f840cc1ac5.js';
+init('/chess_stats-16f051f840cc1ac5_bg.wasm');
+window.wasmBindings = bindings;
+
+</script></body></html>
