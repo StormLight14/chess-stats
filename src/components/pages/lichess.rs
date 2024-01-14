@@ -12,7 +12,6 @@ struct TimeControlStats {
     rating: i32,
     rd: i32,
     prog: i32,
-    prov: bool,
 }
 
 impl fmt::Display for TimeControlStats {
@@ -22,9 +21,9 @@ impl fmt::Display for TimeControlStats {
             "
             Games: {},\n
             Rating: {},\n
-            RD: {},\n
-            Progression: {},\n",
-            self.games, self.rating, self.rd, self.prog
+            RD: {}
+            ",
+            self.games, self.rating, self.rd
         )
     }
 }

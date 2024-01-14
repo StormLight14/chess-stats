@@ -18,7 +18,7 @@ impl fmt::Display for TimeControlStats {
             f,
             "
             Rating: {},\n
-            RD: {},\n",
+            RD: {}",
             self.rating, self.rd
         )
     }
